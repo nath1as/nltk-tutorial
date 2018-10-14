@@ -30,3 +30,13 @@ print(word, fdist)
 
 fdist_top10 = fdist.most_common(10)
 print(fdist_top10)
+
+from nltk.tokenize import blankline_tokenize
+AI_blank = blankline_tokenize(AI)
+print((AI_blank[0]))
+
+string = "All the laws of matter are those which our mind must fabricate, and the only laws of mind are fabricated by matter."
+
+quotes_token = nltk.wordpunct_tokenize(string)
+quotes_bigrams = list(nltk.bigrams(quotes_token))
+print(quotes_bigrams)
