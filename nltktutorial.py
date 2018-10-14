@@ -40,3 +40,35 @@ string = "All the laws of matter are those which our mind must fabricate, and th
 quotes_token = nltk.wordpunct_tokenize(string)
 quotes_bigrams = list(nltk.bigrams(quotes_token))
 print(quotes_bigrams)
+
+# stemming : normalize words into its base form or root form
+
+from nltk.stem import PorterStemmer
+
+pst = PorterStemmer()
+
+print(pst.stem("having"))
+
+words_to_stem = ['give', 'giving', 'given', 'gave']
+
+for words in words_to_stem:
+    print(words + ":" + pst.stem(words))
+
+
+from nltk.stem import LancasterStemmer
+
+lst = LancasterStemmer()
+
+for words in words_to_stem:
+    print(words + ":" + lst.stem(words))
+
+
+
+
+from nltk.stem import SnowballStemmer
+
+sbst = SnowballStemmer( 'english' )
+
+for words in words_to_stem:
+    print(words + ":" + sbst.stem(words))
+
