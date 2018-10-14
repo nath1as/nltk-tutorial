@@ -72,3 +72,15 @@ sbst = SnowballStemmer( 'english' )
 for words in words_to_stem:
     print(words + ":" + sbst.stem(words))
 
+
+# lemmatization: group together different inflected forms
+#of a word, called Lemma, similar to  stemming with a proper word as an output
+
+from nltk.stem import wordnet
+from nltk.stem import WordNetLemmatizer
+word_lem = WordNetLemmatizer()
+
+word_lem.lemmatize('corpora')
+
+for words in words_to_stem:
+    print(words + " : " + word_lem.lemmatize(words))
