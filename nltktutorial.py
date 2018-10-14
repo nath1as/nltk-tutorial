@@ -84,3 +84,47 @@ word_lem.lemmatize('corpora')
 
 for words in words_to_stem:
     print(words + " : " + word_lem.lemmatize(words))
+
+from nltk.corpus import stopwords
+
+print(stopwords.words('english'))
+
+import re
+punctuaction = re.compile(r'[.,?!.:;()|0-9]')
+
+sent = "Hegel was right, you know."
+sent_tokens = word_tokenize(sent)
+
+for token in sent_tokens:
+    print(nltk.pos_tag([token]))
+
+sent2 = "Kant considered marriage a contract."
+sent_tokens2 = word_tokenize(sent2)
+
+for token in sent_tokens2:
+    print(nltk.pos_tag([token]))
+
+# named entity recognition
+
+from nltk import ne_chunk
+
+NE_sent = " The US Presiedent stays in the WHITE HOUSE"
+
+NE_tokens = word_tokenize(NE_sent)
+NE_tags = nltk.pos_tag(NE_tokens)
+
+NE_NER = ne_chunk(NE_tags)
+print(NE_NER)
+
+
+#
+new = "The big cat ate the little mouse who was after fresh cheese."
+new_tokens = nltk.pos_tag(word_tokenize(new))
+
+
+grammar_np = r"NP: {<DT>?<JJ>*<NN>}"
+chunk_parser = nltk.RegexpParser(grammar_np)
+
+chunk_result = chunk_parser.parse(new_tokens)
+print(chunk_result)
+
